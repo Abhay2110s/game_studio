@@ -67,7 +67,7 @@ export const GameHeader = ({
               <div className="w-px h-6 sm:h-8 bg-slate-800" />
               <div className="flex flex-col items-center">
                 <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400 font-bold">{extraStat.label}</span>
-                <span className="text-base sm:text-xl font-extrabold text-purple-400">{extraStat.value}</span>
+                <span className="text-base sm:text-xl font-extrabold text-cyan-400">{extraStat.value}</span>
               </div>
             </>
           )}
@@ -93,7 +93,7 @@ export const GameHeader = ({
               variant="ghost"
               size="sm"
               icon={RotateCcw}
-              className="border border-purple-500/30 hover:bg-purple-500/20 text-purple-300 text-xs sm:text-sm"
+              className="border border-cyan-500/30 hover:bg-cyan-500/20 text-cyan-300 text-xs sm:text-sm"
             >
               <span className="hidden sm:inline">Restart</span>
             </Button>

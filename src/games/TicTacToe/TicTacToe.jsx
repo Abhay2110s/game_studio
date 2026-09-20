@@ -123,8 +123,6 @@ export const TicTacToe = () => {
   const handleCellClick = (index) => {
     if (board[index] || winner) return;
 
-    playBounce();
-
     const newBoard = [...board];
     newBoard[index] = isXNext ? 'X' : 'O';
     setBoard(newBoard);
@@ -146,7 +144,6 @@ export const TicTacToe = () => {
       const timer = setTimeout(() => {
         const cpuMoveIndex = getBestMove([...board], difficulty);
         if (cpuMoveIndex !== -1) {
-          playBounce();
           const newBoard = [...board];
           newBoard[cpuMoveIndex] = 'O';
           setBoard(newBoard);
@@ -177,7 +174,6 @@ export const TicTacToe = () => {
   };
 
   const resetGame = () => {
-    playClick();
     setBoard(Array(9).fill(null));
     setIsXNext(true);
     setWinner(null);

@@ -153,7 +153,7 @@ export const Snake = () => {
     }, speed);
 
     return () => clearInterval(timer);
-  }, [gameState, speed, food, generateFood, playEat]);
+  }, [gameState, speed, food, generateFood]);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">

@@ -22,7 +22,7 @@ export const Games = () => {
       {/* Header Title */}
       <div className="text-center max-w-2xl mx-auto mb-10">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-2 sm:mb-3">
-          CHOOSE YOUR <span className="text-purple-400 text-glow-purple">GAME</span>
+          CHOOSE YOUR <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent text-glow-cyan">GAME</span>
         </h1>
         <p className="text-slate-400 text-sm md:text-base font-medium">
           Browse through our arcade catalog of 6 mini-games. Filter by category or search by keyword.
@@ -40,7 +40,7 @@ export const Games = () => {
             placeholder="Search games..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-11 pr-4 py-2.5 rounded-2xl bg-slate-900/90 border border-slate-700/60 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all"
+            className="w-full pl-11 pr-4 py-2.5 rounded-2xl bg-slate-900/90 border border-slate-700/60 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
           />
         </div>
 
@@ -50,9 +50,9 @@ export const Games = () => {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all duration-200 cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs font-black transition-all duration-200 cursor-pointer ${
                 selectedCategory === cat
-                  ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-900/30 border border-purple-400/30'
+                  ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/20 border border-emerald-400/40'
                   : 'bg-slate-900/80 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-700/50'
               }`}
             >

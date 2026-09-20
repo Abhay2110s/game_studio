@@ -17,15 +17,16 @@ export const Button = ({
     }
   };
 
-  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-purple-500/50 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none';
+  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none';
 
   const variants = {
-    primary: 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white shadow-lg shadow-purple-900/30 hover:shadow-purple-700/50 border border-purple-400/20',
-    secondary: 'bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700/60 hover:border-slate-500/80 shadow-md',
-    cyan: 'bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-900/30 hover:shadow-cyan-600/50 border border-cyan-300/20',
-    danger: 'bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white shadow-lg shadow-red-900/30',
-    outline: 'bg-transparent border border-purple-500/40 hover:bg-purple-500/10 text-purple-300 hover:text-white',
-    ghost: 'bg-transparent hover:bg-slate-800/60 text-slate-300 hover:text-white',
+    primary: 'bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400/30',
+    secondary: 'bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-800 hover:border-cyan-500/50 shadow-md',
+    cyan: 'bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/20 border border-cyan-400/30',
+    danger: 'bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white shadow-lg shadow-rose-900/30 border border-rose-500/30',
+    outline: 'bg-slate-900/50 border border-cyan-500/40 hover:bg-cyan-500/10 hover:border-cyan-400 text-cyan-300 hover:text-white',
+    emerald: 'bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400/30',
+    ghost: 'bg-transparent hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400',
   };
 
   const sizes = {

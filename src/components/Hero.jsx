@@ -1,36 +1,36 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Sparkles, Gamepad2, ArrowRight } from 'lucide-react';
+import { Gamepad2, ArrowRight } from 'lucide-react';
 
 const CARDS_DATA = [
   {
     letter: 'P',
-    gradient: 'from-purple-400 via-indigo-300 to-indigo-500',
-    glowColor: 'group-hover:shadow-purple-500/30 group-hover:border-purple-400/60',
-    accent: 'bg-purple-500/20 text-purple-400'
+    gradient: 'from-emerald-400 via-teal-300 to-cyan-500',
+    glowColor: 'group-hover:shadow-emerald-500/40 group-hover:border-emerald-400/60',
+    accent: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
   },
   {
     letter: 'L',
-    gradient: 'from-indigo-400 via-cyan-300 to-blue-500',
-    glowColor: 'group-hover:shadow-indigo-500/30 group-hover:border-indigo-400/60',
-    accent: 'bg-indigo-500/20 text-indigo-400'
+    gradient: 'from-cyan-400 via-sky-300 to-indigo-500',
+    glowColor: 'group-hover:shadow-cyan-500/40 group-hover:border-cyan-400/60',
+    accent: 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
   },
   {
     letter: 'A',
-    gradient: 'from-cyan-400 via-teal-300 to-emerald-400',
-    glowColor: 'group-hover:shadow-cyan-500/30 group-hover:border-cyan-400/60',
-    accent: 'bg-cyan-500/20 text-cyan-400'
+    gradient: 'from-indigo-400 via-purple-300 to-fuchsia-500',
+    glowColor: 'group-hover:shadow-indigo-500/40 group-hover:border-indigo-400/60',
+    accent: 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30'
   },
   {
     letter: 'Y',
-    gradient: 'from-emerald-400 via-purple-300 to-purple-500',
-    glowColor: 'group-hover:shadow-emerald-500/30 group-hover:border-emerald-400/60',
-    accent: 'bg-emerald-500/20 text-emerald-400'
+    gradient: 'from-rose-400 via-pink-300 to-amber-400',
+    glowColor: 'group-hover:shadow-rose-500/40 group-hover:border-rose-400/60',
+    accent: 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
   }
 ];
 
-export const SnakePlayHero = () => {
+export const Hero = () => {
   const navigate = useNavigate();
 
   const handlePlayNow = () => {
@@ -38,58 +38,40 @@ export const SnakePlayHero = () => {
   };
 
   return (
-    <section className="relative min-h-[70vh] sm:min-h-[80vh] flex flex-col items-center justify-center pt-8 pb-12 px-3 sm:px-6 lg:px-8 overflow-hidden select-none">
-
-      {/* Subtle Background Ambient Lights */}
+    <section className="relative min-h-[65vh] sm:min-h-[75vh] flex flex-col items-center justify-center pt-8 pb-12 px-3 sm:px-6 lg:px-8 overflow-hidden select-none">
+      
+      {/* Rich Vibrant Background Ambient Glow Orbs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-purple-600/12 rounded-full blur-[140px]" />
-        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-cyan-500/15 rounded-full blur-[150px]" />
+        <div className="absolute top-1/2 left-1/4 w-[350px] h-[350px] bg-emerald-500/12 rounded-full blur-[130px]" />
+        <div className="absolute bottom-10 right-1/4 w-[400px] h-[350px] bg-indigo-600/15 rounded-full blur-[140px]" />
       </div>
-
-      {/* Hero Badge & Subtitle */}
-      <motion.div
-        initial={{ opacity: 0, y: -15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-center flex flex-col items-center gap-2 mb-8 z-10"
-      >
-        {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-purple-500/30 shadow-lg shadow-purple-950/40 backdrop-blur-md">
-          <Sparkles className="w-4 h-4 text-cyan-400" />
-          <span className="text-xs font-extrabold tracking-widest text-slate-300 uppercase">
-            ARCADE GAME UNIVERSE
-          </span>
-        </div> */}
-
-        {/* <p className="text-sm sm:text-base md:text-lg text-slate-400 font-medium max-w-lg mt-1 px-2">
-          Select your game, test your skills, and master the arcade.
-        </p> */}
-      </motion.div>
 
       {/* 4 CARDS IN ONE HORIZONTAL ROW (P - L - A - Y) */}
       <div className="w-full max-w-4xl mx-auto z-10">
-        <div className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-6 justify-center items-center w-full">
+        <div className="grid grid-cols-4 gap-2.5 sm:gap-4 md:gap-6 justify-center items-center w-full">
           {CARDS_DATA.map((card, idx) => (
             <motion.div
               key={card.letter}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: idx * 0.08 }}
-              whileHover={{ y: -6, scale: 1.04 }}
-              className={`group aspect-[3/4] w-full rounded-2xl sm:rounded-3xl bg-gradient-to-b from-slate-900/90 via-slate-950/90 to-slate-900/90 border border-white/10 ${card.glowColor} shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col items-center justify-center relative overflow-hidden backdrop-blur-md cursor-pointer`}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
+              whileHover={{ y: -8, scale: 1.05 }}
+              className={`group aspect-[3/4] w-full rounded-2xl sm:rounded-3xl bg-gradient-to-b from-slate-900/95 via-[#0B0F19]/95 to-slate-900/95 border border-white/10 ${card.glowColor} shadow-2xl hover:shadow-cyan-900/30 transition-all duration-300 flex flex-col items-center justify-center relative overflow-hidden backdrop-blur-xl cursor-pointer`}
               onClick={handlePlayNow}
             >
               {/* Top Accent Icon */}
-              <div className={`absolute top-2 right-2 sm:top-3 sm:right-3 w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl ${card.accent} flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity`}>
+              <div className={`absolute top-2 right-2 sm:top-3.5 sm:right-3.5 w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl ${card.accent} flex items-center justify-center opacity-85 group-hover:opacity-100 transition-opacity shadow-sm`}>
                 <Gamepad2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </div>
 
               {/* Main Card Letter */}
-              <span className={`text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black bg-clip-text text-transparent bg-gradient-to-tr ${card.gradient} drop-shadow-[0_8px_16px_rgba(0,0,0,0.6)] group-hover:scale-105 transition-transform duration-300`}>
+              <span className={`text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black bg-clip-text text-transparent bg-gradient-to-tr ${card.gradient} drop-shadow-[0_10px_20px_rgba(0,0,0,0.7)] group-hover:scale-105 transition-transform duration-300`}>
                 {card.letter}
               </span>
 
               {/* Subtle Bottom Glow Line */}
-              <div className="absolute bottom-0 inset-x-4 h-1 rounded-t-full bg-gradient-to-r from-transparent via-purple-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute bottom-0 inset-x-4 h-1 rounded-t-full bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
             </motion.div>
           ))}
         </div>
@@ -100,17 +82,17 @@ export const SnakePlayHero = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="mt-8 sm:mt-10 z-10"
+        className="mt-8 sm:mt-12 z-10"
       >
         <motion.button
           onClick={handlePlayNow}
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.96 }}
-          className="px-8 sm:px-10 py-3.5 sm:py-4 rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-black text-base sm:text-xl tracking-wide flex items-center gap-3 shadow-2xl shadow-purple-950/50 border border-purple-400/30 transition-all duration-300 cursor-pointer group"
+          className="px-8 sm:px-12 py-3.5 sm:py-4.5 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-black text-lg sm:text-2xl tracking-wide flex items-center gap-3 shadow-2xl shadow-emerald-500/30 hover:shadow-cyan-400/50 border border-emerald-300/40 transition-all duration-300 cursor-pointer group"
         >
-          <Gamepad2 className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:rotate-12 transition-transform" />
+          <Gamepad2 className="w-6 h-6 sm:w-7 sm:h-7 text-slate-950 group-hover:rotate-12 transition-transform" />
           <span>PLAY NOW</span>
-          <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:translate-x-1.5 transition-transform" />
+          <ArrowRight className="w-6 h-6 sm:w-7 sm:h-7 text-slate-950 group-hover:translate-x-2 transition-transform" />
         </motion.button>
       </motion.div>
 
@@ -118,4 +100,4 @@ export const SnakePlayHero = () => {
   );
 };
 
-export default SnakePlayHero;
+export default Hero;

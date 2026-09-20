@@ -45,13 +45,13 @@ export const GameOverModal = ({
           <div className="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-3 sm:mb-4 relative">
             {isVictory ? (
               <div className="w-full h-full rounded-full bg-gradient-to-tr from-amber-500 to-yellow-300 p-1 shadow-lg shadow-amber-500/40 animate-bounce">
-                <div className="w-full h-full bg-[#171A23] rounded-full flex items-center justify-center">
+                <div className="w-full h-full bg-[#0B0F19] rounded-full flex items-center justify-center">
                   <Crown className="w-8 h-8 sm:w-10 sm:h-10 text-amber-400" />
                 </div>
               </div>
             ) : (
               <div className="w-full h-full rounded-full bg-gradient-to-tr from-red-600 to-rose-400 p-1 shadow-lg shadow-red-500/40">
-                <div className="w-full h-full bg-[#171A23] rounded-full flex items-center justify-center">
+                <div className="w-full h-full bg-[#0B0F19] rounded-full flex items-center justify-center">
                   <Skull className="w-8 h-8 sm:w-10 sm:h-10 text-red-400" />
                 </div>
               </div>
@@ -96,7 +96,7 @@ export const GameOverModal = ({
             {stats.map((st) => (
               <div key={st.label} className="flex justify-between items-center px-2 sm:px-3 py-1 border-t border-white/5">
                 <span className="text-[10px] sm:text-xs uppercase tracking-wider text-slate-400 font-semibold">{st.label}</span>
-                <span className="text-sm sm:text-base font-bold text-purple-300">{st.value}</span>
+                <span className="text-sm sm:text-base font-bold text-cyan-300">{st.value}</span>
               </div>
             ))}
           </div>

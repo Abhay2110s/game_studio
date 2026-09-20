@@ -219,7 +219,7 @@ export const Pong = () => {
 
     animId = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(animId);
-  }, [gameState, mode, playBounce, playHit]);
+  }, [gameState, mode]);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">
@@ -235,7 +235,7 @@ export const Pong = () => {
       <div className="flex justify-center mb-6">
         <div className="flex bg-slate-900/90 p-1.5 rounded-2xl border border-white/10">
           <button
-            onClick={() => { playClick(); setMode('PVE'); setGameState('IDLE'); }}
+            onClick={() => { setMode('PVE'); setGameState('IDLE'); }}
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
               mode === 'PVE' ? 'bg-amber-500 text-white shadow-lg' : 'text-slate-400 hover:text-white'
             }`}
@@ -243,7 +243,7 @@ export const Pong = () => {
             <Cpu className="w-4 h-4" /> VS Computer
           </button>
           <button
-            onClick={() => { playClick(); setMode('PVP'); setGameState('IDLE'); }}
+            onClick={() => { setMode('PVP'); setGameState('IDLE'); }}
             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
               mode === 'PVP' ? 'bg-cyan-500 text-white shadow-lg' : 'text-slate-400 hover:text-white'
             }`}

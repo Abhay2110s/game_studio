@@ -15,8 +15,8 @@ export const PauseModal = ({ isOpen, onResume, onRestart, onBack }) => {
           exit={{ opacity: 0, scale: 0.9 }}
           className="w-full max-w-sm glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 text-center border border-white/15 shadow-2xl"
         >
-          <div className="mx-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-purple-600/20 border border-purple-500/30 flex items-center justify-center mb-3 sm:mb-4">
-            <PauseCircle className="w-7 h-7 sm:w-8 sm:h-8 text-purple-400" />
+          <div className="mx-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center mb-3 sm:mb-4">
+            <PauseCircle className="w-7 h-7 sm:w-8 sm:h-8 text-cyan-400" />
           </div>
 
           <h2 className="text-xl sm:text-2xl font-black text-white mb-1 sm:mb-2">GAME PAUSED</h2>

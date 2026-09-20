@@ -140,7 +140,7 @@ export const GameCard = ({ game }) => {
     <motion.div
       whileHover={{ y: -6, scale: 1.02 }}
       transition={{ duration: 0.25 }}
-      className="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group border border-white/10 hover:border-purple-500/40 hover:shadow-2xl hover:shadow-purple-900/30 transition-all duration-300"
+      className="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group border border-slate-800 hover:border-cyan-500/50 hover:shadow-2xl hover:shadow-cyan-500/15 transition-all duration-300"
     >
       <div>
         {/* Card Header Illustration */}
@@ -148,7 +148,7 @@ export const GameCard = ({ game }) => {
           <GamePreviewGraphic slug={slug} />
           
           {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#171A23] via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent" />
 
           {/* Category Badge */}
           <div className="absolute top-3 left-3">
@@ -167,7 +167,7 @@ export const GameCard = ({ game }) => {
 
         {/* Content Body */}
         <div className="p-5 flex flex-col gap-2.5">
-          <h3 className="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+          <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
             {title}
           </h3>
           <p className="text-sm text-slate-400 line-clamp-2 leading-relaxed">
@@ -177,7 +177,7 @@ export const GameCard = ({ game }) => {
           {/* Tags */}
           <div className="flex flex-wrap gap-1.5 mt-2">
             {tags.map((tag) => (
-              <span key={tag} className="text-[11px] font-medium text-slate-400 bg-slate-800/60 px-2 py-0.5 rounded-md border border-slate-700/40">
+              <span key={tag} className="text-[11px] font-medium text-cyan-400/80 bg-cyan-950/30 px-2 py-0.5 rounded-md border border-cyan-500/20">
                 #{tag}
               </span>
             ))}
@@ -191,7 +191,7 @@ export const GameCard = ({ game }) => {
           onClick={handlePlay}
           variant="primary"
           icon={Play}
-          className="w-full group-hover:from-purple-500 group-hover:to-cyan-500"
+          className="w-full"
         >
           Play Game
         </Button>

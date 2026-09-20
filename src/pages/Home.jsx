@@ -20,7 +20,7 @@ export const Home = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 border-b border-white/10 pb-6">
           <div>
             <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight flex items-center gap-3">
-              <Flame className="w-8 h-8 text-purple-500" />
+              <Flame className="w-8 h-8 text-cyan-400 drop-shadow-[0_0_12px_rgba(6,182,212,0.6)]" />
               FEATURED GAMES
             </h2>
             <p className="text-slate-400 text-sm mt-1">

@@ -7,13 +7,13 @@ export const About = () => {
       
       {/* Title */}
       <div className="text-center mb-10">
-        <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-purple-600 to-cyan-400 p-0.5 mx-auto mb-4 shadow-xl shadow-purple-500/30">
-          <div className="w-full h-full bg-[#08090D] rounded-[14px] flex items-center justify-center">
-            <Gamepad2 className="w-8 h-8 text-purple-400" />
+        <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-emerald-500 via-teal-400 to-cyan-400 p-0.5 mx-auto mb-4 shadow-xl shadow-cyan-500/30">
+          <div className="w-full h-full bg-[#030712] rounded-[14px] flex items-center justify-center">
+            <Gamepad2 className="w-8 h-8 text-cyan-400" />
           </div>
         </div>
         <h1 className="text-4xl md:text-5xl font-black text-white tracking-tight mb-2">
-          ABOUT <span className="text-purple-400 text-glow-purple">GAMEVERSE</span>
+          ABOUT <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent text-glow-cyan">GAMEVERSE</span>
         </h1>
         <p className="text-slate-400 text-sm md:text-base font-medium">
           "Six games. One universe."
@@ -30,7 +30,7 @@ export const About = () => {
         {/* Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-2">
           <div className="bg-slate-900/80 p-5 rounded-2xl border border-white/5 flex flex-col gap-2">
-            <Zap className="w-6 h-6 text-yellow-400" />
+            <Zap className="w-6 h-6 text-emerald-400" />
             <h3 className="text-base font-bold text-white">Instant Gameplay</h3>
             <p className="text-xs text-slate-400">
               No registration, no score persistence, no login screens. Click and play immediately.
@@ -46,18 +46,18 @@ export const About = () => {
           </div>
 
           <div className="bg-slate-900/80 p-5 rounded-2xl border border-white/5 flex flex-col gap-2">
-            <Sparkles className="w-6 h-6 text-purple-400" />
-            <h3 className="text-base font-bold text-white">Synthesized Audio</h3>
+            <Sparkles className="w-6 h-6 text-indigo-400" />
+            <h3 className="text-base font-bold text-white">Arcade Visuals</h3>
             <p className="text-xs text-slate-400">
-              Web Audio API synth sounds provide crisp arcade feedback with a global mute toggle.
+              Vibrant neon cyberpunk themes, smooth framerate animations, and responsive controls.
             </p>
           </div>
         </div>
 
         {/* Tech Badges */}
         <div className="border-t border-white/10 pt-6 flex flex-wrap items-center justify-center gap-3">
-          {['React 19', 'Vite', 'JavaScript', 'Tailwind CSS', 'Framer Motion', 'HTML5 Canvas', 'Lucide React', 'Web Audio API'].map((tech) => (
-            <span key={tech} className="px-3 py-1 rounded-full text-xs font-semibold bg-purple-600/10 border border-purple-500/30 text-purple-300">
+          {['React 19', 'Vite', 'JavaScript', 'Tailwind CSS', 'Framer Motion', 'HTML5 Canvas', 'Lucide React'].map((tech) => (
+            <span key={tech} className="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-500/10 border border-cyan-500/30 text-cyan-300">
               {tech}
             </span>
           ))}

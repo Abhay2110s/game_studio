@@ -94,7 +94,6 @@ export const Breakout = () => {
   }, []);
 
   const initGame = useCallback((nextLevel = 1, keepScore = false) => {
-    playClick();
     const currentHighScore = highScore;
     
     if (!keepScore) {
@@ -127,7 +126,7 @@ export const Breakout = () => {
     engineRef.current.bricks = generateBricks(nextLevel);
     engineRef.current.powerups = [];
     setGameState('RUNNING');
-  }, [generateBricks, highScore, playClick]);
+  }, [generateBricks, highScore]);
 
   // Keyboard Event Handlers
   useEffect(() => {
@@ -423,7 +422,7 @@ export const Breakout = () => {
 
     animId = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(animId);
-  }, [gameState, level, initGame, playBounce, playHit, playPowerup, playVictory]);
+  }, [gameState, level, initGame]);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">

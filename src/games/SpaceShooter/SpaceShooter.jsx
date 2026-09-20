@@ -105,7 +105,6 @@ export const SpaceShooter = () => {
   }, []);
 
   const initGame = useCallback(() => {
-    playClick();
     setScore(0);
     setLives(3);
     setWave(1);
@@ -124,7 +123,7 @@ export const SpaceShooter = () => {
 
     spawnWave(1);
     setGameState('RUNNING');
-  }, [spawnWave, playClick]);
+  }, [spawnWave]);
 
   // Create Explosive Canvas Particle Effects
   const createExplosion = (x, y, color = '#F59E0B') => {
@@ -179,7 +178,6 @@ export const SpaceShooter = () => {
 
     if (now - player.lastShotTime > cooldown) {
       player.lastShotTime = now;
-      playShoot();
 
       if (player.multiShotTimer > 0) {
         // Triple Spread Shot
@@ -191,7 +189,7 @@ export const SpaceShooter = () => {
         bullets.push({ x: player.x + 18, y: player.y, vx: 0, vy: -10 });
       }
     }
-  }, [playShoot]);
+  }, []);
 
   // Main Canvas Render & Physics Loop
   useEffect(() => {
@@ -289,10 +287,8 @@ export const SpaceShooter = () => {
           enemyBullets.splice(i, 1);
           if (player.shield) {
             player.shield = false;
-            playPowerup();
           } else {
             createExplosion(player.x + 20, player.y + 20, '#EF4444');
-            playExplosion();
             setLives((l) => {
               const next = l - 1;
               if (next <= 0) setGameState('GAMEOVER');
@@ -343,8 +339,6 @@ export const SpaceShooter = () => {
 
             if (boss.hp <= 0) {
               createExplosion(boss.x + 60, boss.y + 35, '#F59E0B');
-              playExplosion();
-              playVictory();
               setScore((s) => s + 500);
               engineRef.current.boss = null;
               setWave((w) => {
@@ -387,7 +381,6 @@ export const SpaceShooter = () => {
             e.hp--;
             if (e.hp <= 0) {
               createExplosion(e.x + e.width / 2, e.y + e.height / 2, e.type === 'STRONG' ? '#C084FC' : '#F87171');
-              playExplosion();
 
               // Drop Powerup Chance
               if (Math.random() < 0.2) {
@@ -445,7 +438,6 @@ export const SpaceShooter = () => {
           p.y >= player.y &&
           p.y <= player.y + player.height
         ) {
-          playPowerup();
           if (p.type === 'SHIELD') player.shield = true;
           if (p.type === 'MULTI') player.multiShotTimer = 300;
           if (p.type === 'RAPID') player.rapidTimer = 300;
@@ -475,7 +467,7 @@ export const SpaceShooter = () => {
 
     animId = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(animId);
-  }, [gameState, spawnWave, firePlayerLaser, playExplosion, playPowerup, playVictory]);
+  }, [gameState, spawnWave, firePlayerLaser]);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-6">

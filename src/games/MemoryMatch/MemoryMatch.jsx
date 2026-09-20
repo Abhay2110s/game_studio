@@ -67,7 +67,7 @@ export const MemoryMatch = () => {
     setIsEvaluating(false);
     setIsGameActive(true);
     setIsWon(false);
-  }, [difficulty, playClick]);
+  }, [difficulty]);
 
   useEffect(() => {
     initGame(difficulty);
