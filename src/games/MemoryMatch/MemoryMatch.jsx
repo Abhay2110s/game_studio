@@ -8,7 +8,6 @@ import {
 import GameHeader from '../../components/GameHeader';
 import GameOverModal from '../../components/GameOverModal';
 import Button from '../../components/Button';
-import { useSound } from '../../context/SoundContext';
 
 // Available Lucide Icons for memory cards
 const ICON_LIST = [
@@ -30,7 +29,6 @@ const DIFFICULTY_CONFIG = {
 
 export const MemoryMatch = () => {
   const navigate = useNavigate();
-  const { playClick, playFlip, playMatch } = useSound();
 
   const [difficulty, setDifficulty] = useState('MEDIUM');
   const [cards, setCards] = useState([]);
@@ -44,7 +42,6 @@ export const MemoryMatch = () => {
 
   // Initialize and shuffle deck based on difficulty
   const initGame = useCallback((diffKey = difficulty) => {
-    playClick();
     const config = DIFFICULTY_CONFIG[diffKey];
     const pairCount = config.count / 2;
     const selectedIcons = ICON_LIST.slice(0, pairCount);
@@ -98,8 +95,6 @@ export const MemoryMatch = () => {
       return;
     }
 
-    playFlip();
-
     const newFlipped = [...flippedIndices, index];
     setFlippedIndices(newFlipped);
 
@@ -113,7 +108,6 @@ export const MemoryMatch = () => {
 
       if (firstCard.iconId === secondCard.iconId) {
         // Match found!
-        playMatch();
         setMatchedIds((prev) => {
           const nextMatched = [...prev, firstCard.iconId];
           // Check win condition

@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useSound } from '../context/SoundContext';
 
 export const Button = ({
   children,
@@ -12,12 +11,9 @@ export const Button = ({
   disabled = false,
   ...props
 }) => {
-  const { playClick } = useSound();
-
   const handleOnClick = (e) => {
-    if (!disabled) {
-      playClick();
-      if (onClick) onClick(e);
+    if (!disabled && onClick) {
+      onClick(e);
     }
   };
 

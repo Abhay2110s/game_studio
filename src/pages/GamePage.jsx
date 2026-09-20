@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, Navigate, Link } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import { GAMES_DATA } from '../data/games';
 import Snake from '../games/Snake/Snake';
 import TicTacToe from '../games/TicTacToe/TicTacToe';
@@ -7,12 +7,10 @@ import MemoryMatch from '../games/MemoryMatch/MemoryMatch';
 import Breakout from '../games/Breakout/Breakout';
 import Pong from '../games/Pong/Pong';
 import SpaceShooter from '../games/SpaceShooter/SpaceShooter';
-import { Gamepad2, ArrowLeft, Shield, Info } from 'lucide-react';
-import { useSound } from '../context/SoundContext';
+import { Info } from 'lucide-react';
 
 export const GamePage = () => {
   const { slug } = useParams();
-  const { playClick } = useSound();
 
   const game = GAMES_DATA.find((g) => g.slug === slug);
 

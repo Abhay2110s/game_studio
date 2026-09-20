@@ -6,7 +6,6 @@ import GameOverModal from '../../components/GameOverModal';
 import PauseModal from '../../components/PauseModal';
 import MobileControls from '../../components/MobileControls';
 import Button from '../../components/Button';
-import { useSound } from '../../context/SoundContext';
 
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 500;
@@ -16,7 +15,6 @@ const PADDLE_HEIGHT = 14;
 export const Breakout = () => {
   const navigate = useNavigate();
   const canvasRef = useRef(null);
-  const { playBounce, playHit, playPowerup, playGameOver, playVictory, playClick } = useSound();
 
   const [gameState, setGameState] = useState('IDLE'); // IDLE, RUNNING, PAUSED, GAMEOVER, VICTORY
   const [score, setScore] = useState(0);
@@ -253,7 +251,6 @@ export const Breakout = () => {
 
       // Level Clear Victory Check
       if (activeBricksCount === 0) {
-        playVictory();
         initGame(level + 1, true);
         return;
       }
@@ -281,7 +278,6 @@ export const Breakout = () => {
           p.x >= paddle.x &&
           p.x <= paddle.x + paddle.width
         ) {
-          playPowerup();
           if (p.type === 'WIDE') {
             paddle.width = Math.min(220, paddle.width + 40);
           } else if (p.type === 'MULTI') {
@@ -318,13 +314,11 @@ export const Breakout = () => {
         // Wall Collision (Left / Right)
         if (ball.x - ball.radius <= 0 || ball.x + ball.radius >= CANVAS_WIDTH) {
           ball.dx = -ball.dx;
-          playBounce();
         }
 
         // Wall Collision (Top)
         if (ball.y - ball.radius <= 0) {
           ball.dy = -ball.dy;
-          playBounce();
         }
 
         // Paddle Collision
@@ -335,7 +329,6 @@ export const Breakout = () => {
           ball.x <= paddle.x + paddle.width &&
           ball.dy > 0
         ) {
-          playBounce();
           ball.dy = -Math.abs(ball.dy);
           // Angle modifier depending on where ball hits paddle
           const hitPoint = (ball.x - (paddle.x + paddle.width / 2)) / (paddle.width / 2);
@@ -353,7 +346,6 @@ export const Breakout = () => {
             ) {
               ball.dy = -ball.dy;
               b.hits--;
-              playHit();
 
               if (b.hits === 0) {
                 const pts = b.type === 1 ? 25 : b.type === 2 ? 20 : 10;

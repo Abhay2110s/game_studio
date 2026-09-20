@@ -6,7 +6,6 @@ import GameOverModal from '../../components/GameOverModal';
 import PauseModal from '../../components/PauseModal';
 import MobileControls from '../../components/MobileControls';
 import Button from '../../components/Button';
-import { useSound } from '../../context/SoundContext';
 
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 550;
@@ -14,7 +13,6 @@ const CANVAS_HEIGHT = 550;
 export const SpaceShooter = () => {
   const navigate = useNavigate();
   const canvasRef = useRef(null);
-  const { playShoot, playExplosion, playPowerup, playVictory, playGameOver, playClick } = useSound();
 
   const [gameState, setGameState] = useState('IDLE'); // IDLE, RUNNING, PAUSED, GAMEOVER, VICTORY
   const [score, setScore] = useState(0);

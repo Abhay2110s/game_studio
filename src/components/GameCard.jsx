@@ -2,7 +2,6 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Play, Sparkles, Trophy } from 'lucide-react';
-import { useSound } from '../context/SoundContext';
 import Button from './Button';
 
 // Custom SVG graphic preview generator for each game
@@ -132,10 +131,8 @@ const GamePreviewGraphic = ({ slug, accentColor }) => {
 export const GameCard = ({ game }) => {
   const { title, description, category, difficulty, slug, badgeColor, tags } = game;
   const navigate = useNavigate();
-  const { playClick } = useSound();
 
   const handlePlay = () => {
-    playClick();
     navigate(`/game/${slug}`);
   };
 

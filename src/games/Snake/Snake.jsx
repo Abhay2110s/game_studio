@@ -6,14 +6,12 @@ import GameOverModal from '../../components/GameOverModal';
 import PauseModal from '../../components/PauseModal';
 import MobileControls from '../../components/MobileControls';
 import Button from '../../components/Button';
-import { useSound } from '../../context/SoundContext';
 
 const GRID_SIZE = 20;
 const INITIAL_SPEED = 140;
 
 export const Snake = () => {
   const navigate = useNavigate();
-  const { playEat, playGameOver, playClick } = useSound();
 
   const [gameState, setGameState] = useState('IDLE'); // IDLE, RUNNING, PAUSED, GAMEOVER
   const [snake, setSnake] = useState([
@@ -45,7 +43,6 @@ export const Snake = () => {
   }, []);
 
   const startGame = () => {
-    playClick();
     const initialSnake = [
       { x: 10, y: 10 },
       { x: 10, y: 11 },
@@ -135,7 +132,6 @@ export const Snake = () => {
 
         // Check food collision
         if (head.x === food.x && head.y === food.y) {
-          playEat();
           const pts = food.isBonus ? 30 : 10;
           setScore((s) => {
             const nextScore = s + pts;

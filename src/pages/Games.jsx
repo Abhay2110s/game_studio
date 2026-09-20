@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Search, Gamepad2, Filter } from 'lucide-react';
+import { Search, Gamepad2 } from 'lucide-react';
 import { GAMES_DATA, CATEGORIES } from '../data/games';
 import GameCard from '../components/GameCard';
-import { useSound } from '../context/SoundContext';
 
 export const Games = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const { playClick } = useSound();
 
   const filteredGames = GAMES_DATA.filter((game) => {
     const matchesCategory = selectedCategory === 'All' || game.category === selectedCategory;
@@ -52,10 +49,7 @@ export const Games = () => {
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
-              onClick={() => {
-                playClick();
-                setSelectedCategory(cat);
-              }}
+              onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-xl text-xs font-extrabold transition-all duration-200 cursor-pointer ${
                 selectedCategory === cat
                   ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-lg shadow-purple-900/30 border border-purple-400/30'

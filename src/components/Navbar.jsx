@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Gamepad2, Volume2, VolumeX, Menu, X, Sparkles } from 'lucide-react';
-import { useSound } from '../context/SoundContext';
+import { Gamepad2, Menu, X, Sparkles } from 'lucide-react';
 import { GAMES_DATA } from '../data/games';
 import Button from './Button';
 
 export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isMuted, toggleSound, playClick } = useSound();
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleRandomPlay = () => {
-    playClick();
     const randomIndex = Math.floor(Math.random() * GAMES_DATA.length);
     const selectedGame = GAMES_DATA[randomIndex];
     navigate(`/game/${selectedGame.slug}`);
@@ -39,7 +36,6 @@ export const Navbar = () => {
         {/* Brand Logo */}
         <Link 
           to="/" 
-          onClick={playClick}
           className="flex items-center gap-3 group focus:outline-none"
         >
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-500 to-cyan-400 p-0.5 shadow-lg shadow-purple-500/30 group-hover:shadow-purple-500/50 transition-all duration-300">
@@ -63,7 +59,6 @@ export const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
-              onClick={playClick}
               className={`relative text-sm font-medium transition-colors duration-200 py-1 ${
                 isActive(link.path)
                   ? 'text-purple-400 font-semibold'
@@ -81,20 +76,8 @@ export const Navbar = () => {
           ))}
         </nav>
 
-        {/* Right Section: Sound Toggle & Play Now Button */}
+        {/* Right Section: Play Now Button */}
         <div className="hidden md:flex items-center gap-4">
-          <button
-            onClick={toggleSound}
-            title={isMuted ? 'Unmute Sound' : 'Mute Sound'}
-            className="p-2.5 rounded-xl bg-slate-800/60 hover:bg-slate-700/80 border border-slate-700/50 text-slate-300 hover:text-white transition-all duration-200 cursor-pointer"
-          >
-            {isMuted ? (
-              <VolumeX className="w-5 h-5 text-red-400" />
-            ) : (
-              <Volume2 className="w-5 h-5 text-cyan-400" />
-            )}
-          </button>
-
           <Button
             onClick={handleRandomPlay}
             variant="cyan"
@@ -107,17 +90,7 @@ export const Navbar = () => {
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-3">
           <button
-            onClick={toggleSound}
-            className="p-2 rounded-lg bg-slate-800/60 text-slate-300"
-          >
-            {isMuted ? <VolumeX className="w-5 h-5 text-red-400" /> : <Volume2 className="w-5 h-5 text-cyan-400" />}
-          </button>
-          
-          <button
-            onClick={() => {
-              playClick();
-              setMobileMenuOpen(!mobileMenuOpen);
-            }}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-lg bg-slate-800/80 text-slate-200 hover:text-white"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -138,10 +111,7 @@ export const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                onClick={() => {
-                  playClick();
-                  setMobileMenuOpen(false);
-                }}
+                onClick={() => setMobileMenuOpen(false)}
                 className={`py-2 px-3 rounded-lg text-base font-medium transition-colors ${
                   isActive(link.path)
                     ? 'bg-purple-600/20 text-purple-400 border border-purple-500/30'

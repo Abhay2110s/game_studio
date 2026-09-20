@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trophy, RotateCcw, Grid, Skull, Crown, Sparkles } from 'lucide-react';
+import { Trophy, RotateCcw, Grid, Skull, Crown } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { useSound } from '../context/SoundContext';
 import Button from './Button';
 
 export const GameOverModal = ({
@@ -15,24 +14,17 @@ export const GameOverModal = ({
   onRestart,
   onBack,
 }) => {
-  const { playVictory, playGameOver } = useSound();
-
   useEffect(() => {
-    if (isOpen) {
-      if (isVictory) {
-        playVictory();
-        try {
-          confetti({
-            particleCount: 80,
-            spread: 70,
-            origin: { y: 0.6 },
-            colors: ['#8B5CF6', '#22D3EE', '#22C55E', '#F59E0B'],
-          });
-        } catch (e) {
-          // ignore if canvas unavailable
-        }
-      } else {
-        playGameOver();
+    if (isOpen && isVictory) {
+      try {
+        confetti({
+          particleCount: 80,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#8B5CF6', '#22D3EE', '#22C55E', '#F59E0B'],
+        });
+      } catch (e) {
+        // ignore if canvas unavailable
       }
     }
   }, [isOpen, isVictory]);

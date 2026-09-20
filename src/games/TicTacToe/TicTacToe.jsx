@@ -5,7 +5,6 @@ import { X, Circle, RotateCcw, Users, Cpu, Trophy, Bot } from 'lucide-react';
 import GameHeader from '../../components/GameHeader';
 import GameOverModal from '../../components/GameOverModal';
 import Button from '../../components/Button';
-import { useSound } from '../../context/SoundContext';
 
 const WINNING_COMBOS = [
   [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
@@ -15,7 +14,6 @@ const WINNING_COMBOS = [
 
 export const TicTacToe = () => {
   const navigate = useNavigate();
-  const { playClick, playBounce, playVictory } = useSound();
 
   const [board, setBoard] = useState(Array(9).fill(null));
   const [isXNext, setIsXNext] = useState(true);
@@ -197,18 +195,16 @@ export const TicTacToe = () => {
       <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
         <div className="flex bg-slate-900/90 p-1.5 rounded-2xl border border-white/10">
           <button
-            onClick={() => { playClick(); setMode('PVE'); resetGame(); }}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-              mode === 'PVE' ? 'bg-purple-600 text-white shadow-lg' : 'text-slate-400 hover:text-white'
-            }`}
+            onClick={() => { setMode('PVE'); resetGame(); }}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${mode === 'PVE' ? 'bg-purple-600 text-white shadow-lg' : 'text-slate-400 hover:text-white'
+              }`}
           >
             <Cpu className="w-4 h-4" /> VS Computer
           </button>
           <button
-            onClick={() => { playClick(); setMode('PVP'); resetGame(); }}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-              mode === 'PVP' ? 'bg-cyan-500 text-white shadow-lg' : 'text-slate-400 hover:text-white'
-            }`}
+            onClick={() => { setMode('PVP'); resetGame(); }}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${mode === 'PVP' ? 'bg-cyan-500 text-white shadow-lg' : 'text-slate-400 hover:text-white'
+              }`}
           >
             <Users className="w-4 h-4" /> 2 Players (Local)
           </button>
@@ -219,10 +215,9 @@ export const TicTacToe = () => {
             {['EASY', 'MEDIUM', 'HARD'].map((lvl) => (
               <button
                 key={lvl}
-                onClick={() => { playClick(); setDifficulty(lvl); resetGame(); }}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                  difficulty === lvl ? 'bg-indigo-600 text-white shadow' : 'text-slate-400 hover:text-white'
-                }`}
+                onClick={() => { setDifficulty(lvl); resetGame(); }}
+                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${difficulty === lvl ? 'bg-indigo-600 text-white shadow' : 'text-slate-400 hover:text-white'
+                  }`}
               >
                 {lvl}
               </button>
@@ -281,13 +276,12 @@ export const TicTacToe = () => {
                 whileTap={{ scale: cell || winner ? 1 : 0.95 }}
                 onClick={() => handleCellClick(idx)}
                 disabled={!!cell || !!winner || (mode === 'PVE' && !isXNext)}
-                className={`w-full h-full rounded-2xl flex items-center justify-center transition-all duration-200 cursor-pointer ${
-                  isWinningCell
+                className={`w-full h-full rounded-2xl flex items-center justify-center transition-all duration-200 cursor-pointer ${isWinningCell
                     ? 'bg-gradient-to-tr from-purple-600 to-indigo-600 shadow-lg shadow-purple-500/50 border-2 border-cyan-400'
                     : cell
-                    ? 'bg-slate-900/90 border border-slate-700/60'
-                    : 'bg-slate-900/50 hover:bg-slate-800/80 border border-white/5 hover:border-purple-500/40'
-                }`}
+                      ? 'bg-slate-900/90 border border-slate-700/60'
+                      : 'bg-slate-900/50 hover:bg-slate-800/80 border border-white/5 hover:border-purple-500/40'
+                  }`}
               >
                 {cell === 'X' && (
                   <motion.div
@@ -321,10 +315,10 @@ export const TicTacToe = () => {
           winner === 'DRAW'
             ? 'It is a draw!'
             : winner === 'X'
-            ? 'Player X wins the match!'
-            : mode === 'PVE'
-            ? `Computer (${difficulty}) won this round!`
-            : 'Player O wins the match!'
+              ? 'Player X wins the match!'
+              : mode === 'PVE'
+                ? `Computer (${difficulty}) won this round!`
+                : 'Player O wins the match!'
         }
         stats={[
           { label: 'Mode', value: mode === 'PVE' ? `VS CPU (${difficulty})` : '2-Player Local' },

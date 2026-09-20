@@ -6,7 +6,6 @@ import GameOverModal from '../../components/GameOverModal';
 import PauseModal from '../../components/PauseModal';
 import MobileControls from '../../components/MobileControls';
 import Button from '../../components/Button';
-import { useSound } from '../../context/SoundContext';
 
 const CANVAS_WIDTH = 800;
 const CANVAS_HEIGHT = 500;
@@ -17,7 +16,6 @@ const WINNING_SCORE = 7;
 export const Pong = () => {
   const navigate = useNavigate();
   const canvasRef = useRef(null);
-  const { playBounce, playHit, playVictory, playGameOver, playClick } = useSound();
 
   const [gameState, setGameState] = useState('IDLE'); // IDLE, RUNNING, PAUSED, GAMEOVER
   const [mode, setMode] = useState('PVE'); // PVE or PVP
@@ -49,7 +47,6 @@ export const Pong = () => {
   };
 
   const startGame = () => {
-    playClick();
     setP1Score(0);
     setP2Score(0);
     setWinnerMessage('');
@@ -125,7 +122,6 @@ export const Pong = () => {
       // Top / Bottom Wall Collision
       if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= CANVAS_HEIGHT) {
         ball.vy = -ball.vy;
-        playBounce();
       }
 
       // P1 Paddle Collision (Left)
@@ -140,7 +136,6 @@ export const Pong = () => {
         const hitOffset = (ball.y - (p1.y + PADDLE_HEIGHT / 2)) / (PADDLE_HEIGHT / 2);
         ball.vy = hitOffset * 6;
         ball.speedMultiplier = Math.min(2.2, ball.speedMultiplier + 0.06);
-        playHit();
       }
 
       // P2 Paddle Collision (Right)
@@ -155,7 +150,6 @@ export const Pong = () => {
         const hitOffset = (ball.y - (p2.y + PADDLE_HEIGHT / 2)) / (PADDLE_HEIGHT / 2);
         ball.vy = hitOffset * 6;
         ball.speedMultiplier = Math.min(2.2, ball.speedMultiplier + 0.06);
-        playHit();
       }
 
       // Point Scored P1 (Ball passed P2)
@@ -285,9 +279,11 @@ export const Pong = () => {
         {/* Mobile Controls */}
         <div className="w-full max-w-[800px] md:hidden">
           <MobileControls
-            onUp={() => { engineRef.current.p1.y = Math.max(0, engineRef.current.p1.y - 30); }}
-            onDown={() => { engineRef.current.p1.y = Math.min(CANVAS_HEIGHT - PADDLE_HEIGHT, engineRef.current.p1.y + 30); }}
-            showDPad={true}
+            showVerticalOnly={true}
+            onUpStart={() => { engineRef.current.keys.w = true; }}
+            onUpEnd={() => { engineRef.current.keys.w = false; }}
+            onDownStart={() => { engineRef.current.keys.s = true; }}
+            onDownEnd={() => { engineRef.current.keys.s = false; }}
           />
         </div>
       </div>

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { SoundProvider } from './context/SoundContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -19,24 +18,22 @@ const ScrollToTop = () => {
 
 export function App() {
   return (
-    <SoundProvider>
-      <Router>
-        <ScrollToTop />
-        <div className="min-h-screen flex flex-col bg-[#08090D] text-white selection:bg-purple-500 selection:text-white">
-          <Navbar />
-          <main className="flex-grow">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/games" element={<Games />} />
-              <Route path="/game/:slug" element={<GamePage />} />
-              <Route path="/about" element={<About />} />
-              <Route path="*" element={<Home />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
-    </SoundProvider>
+    <Router>
+      <ScrollToTop />
+      <div className="min-h-screen flex flex-col bg-[#08090D] text-white selection:bg-purple-500 selection:text-white">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/games" element={<Games />} />
+            <Route path="/game/:slug" element={<GamePage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

@@ -7,18 +7,60 @@ export const MobileControls = ({
   onLeft,
   onRight,
   onAction,
+  onUpStart,
+  onUpEnd,
+  onDownStart,
+  onDownEnd,
   actionLabel = 'ACTION',
   showDPad = true,
   showHorizontalOnly = false,
+  showVerticalOnly = false,
 }) => {
-  // Helper to prevent default touch events and fire callback
+  // Helper for single click events
   const touchHandler = (callback) => ({
     onTouchStart: (e) => { e.preventDefault(); callback?.(); },
     onTouchEnd: (e) => { e.preventDefault(); },
     onClick: (e) => { e.preventDefault(); callback?.(); },
   });
 
+  // Helper for continuous press-and-hold events
+  const touchHoldHandler = (onStart, onEnd) => ({
+    onTouchStart: (e) => { e.preventDefault(); onStart?.(); },
+    onTouchEnd: (e) => { e.preventDefault(); onEnd?.(); },
+    onTouchCancel: (e) => { e.preventDefault(); onEnd?.(); },
+    onMouseDown: (e) => { e.preventDefault(); onStart?.(); },
+    onMouseUp: (e) => { e.preventDefault(); onEnd?.(); },
+    onMouseLeave: (e) => { e.preventDefault(); onEnd?.(); },
+  });
+
   const btnBase = "rounded-xl bg-slate-800 active:bg-purple-600 text-white flex items-center justify-center border border-slate-700 active:scale-90 shadow-md transition-transform select-none";
+
+  // Specialized 2-Button Vertical Controls (for Pong)
+  if (showVerticalOnly) {
+    return (
+      <div className="w-full max-w-[480px] mx-auto mt-4 flex flex-col items-center gap-3 p-3 sm:p-4 bg-slate-950/90 rounded-2xl border border-white/10 select-none touch-none">
+        {/* UP BUTTON */}
+        <button
+          {...touchHoldHandler(onUpStart || onUp, onUpEnd)}
+          className="w-full py-4 sm:py-5 rounded-2xl bg-amber-500/20 active:bg-amber-500 border border-amber-500/40 text-amber-300 active:text-white flex flex-col items-center justify-center gap-1 shadow-lg active:scale-95 transition-all select-none touch-none cursor-pointer"
+          aria-label="Up"
+        >
+          <ChevronUp className="w-8 h-8" />
+          <span className="text-xs sm:text-sm font-extrabold tracking-widest uppercase">UP</span>
+        </button>
+
+        {/* DOWN BUTTON */}
+        <button
+          {...touchHoldHandler(onDownStart || onDown, onDownEnd)}
+          className="w-full py-4 sm:py-5 rounded-2xl bg-amber-500/20 active:bg-amber-500 border border-amber-500/40 text-amber-300 active:text-white flex flex-col items-center justify-center gap-1 shadow-lg active:scale-95 transition-all select-none touch-none cursor-pointer"
+          aria-label="Down"
+        >
+          <ChevronDown className="w-8 h-8" />
+          <span className="text-xs sm:text-sm font-extrabold tracking-widest uppercase">DOWN</span>
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full mt-3 flex items-center justify-between gap-3 p-3 sm:p-4 bg-slate-950/80 rounded-2xl border border-white/10 select-none">
