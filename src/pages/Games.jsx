@@ -21,26 +21,26 @@ export const Games = () => {
       
       {/* Header Title */}
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-2 sm:mb-3">
-          CHOOSE YOUR <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent text-glow-cyan">GAME</span>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#FFF8E7] text-shadow-teal tracking-tight mb-2 sm:mb-3">
+          CHOOSE YOUR <span className="text-[#F5D66B]">GAME</span>
         </h1>
-        <p className="text-slate-400 text-sm md:text-base font-medium">
+        <p className="text-[#D7EEF0] text-sm md:text-base font-bold">
           Browse through our arcade catalog of 6 mini-games. Filter by category or search by keyword.
         </p>
       </div>
 
       {/* Search & Filter Controls */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 glass-panel p-3 sm:p-4 md:p-6 rounded-2xl sm:rounded-3xl border border-white/10 shadow-xl">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 mb-8 sm:mb-12 bg-[#FFF8E7] p-4 sm:p-5 rounded-2xl sm:rounded-3xl border-[3.5px] border-[#245E67] shadow-[5px_5px_0px_#905080]">
         
         {/* Search Bar */}
         <div className="relative w-full md:w-80">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-[#245E67]" />
           <input
             type="text"
             placeholder="Search games..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-11 pr-4 py-2.5 rounded-2xl bg-slate-900/90 border border-slate-700/60 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all"
+            className="w-full pl-11 pr-4 py-2.5 rounded-xl bg-white border-2 border-[#245E67] text-[#245E67] font-bold placeholder-[#245E67]/50 text-sm focus:outline-none focus:ring-2 focus:ring-[#245E67]"
           />
         </div>
 
@@ -50,10 +50,10 @@ export const Games = () => {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs font-black transition-all duration-200 cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer border-2 border-[#245E67] ${
                 selectedCategory === cat
-                  ? 'bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 shadow-lg shadow-cyan-500/20 border border-emerald-400/40'
-                  : 'bg-slate-900/80 hover:bg-slate-800 text-slate-400 hover:text-white border border-slate-700/50'
+                  ? 'bg-[#F5D66B] text-[#245E67] shadow-[3px_3px_0px_#905080]'
+                  : 'bg-[#E2F1F8] hover:bg-white text-[#245E67]'
               }`}
             >
               {cat}

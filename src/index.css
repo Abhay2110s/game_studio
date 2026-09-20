@@ -2,21 +2,26 @@
 
 @layer base {
   :root {
-    --bg-main: #030712;
-    --bg-secondary: #0B0F19;
-    --bg-card: #111827;
-    --text-primary: #FFFFFF;
-    --text-secondary: #9CA3AF;
-    --accent-emerald: #10B981;
-    --accent-cyan: #06B6D4;
-    --accent-indigo: #6366F1;
-    --accent-purple: #8B5CF6;
-    --danger: #F43F5E;
+    --bg-sky: #4CA8E8;
+    --bg-sky-light: #70D0F0;
+    --bg-sky-dark: #4098D8;
+    --cloud-main: #F4F3E6;
+    --cloud-shadow: #D7EEF0;
+    --grass-main: #72C96B;
+    --grass-light: #B6E06F;
+    --grass-dark: #4D9D67;
+    --brick-main: #E48170;
+    --brick-light: #F09A79;
+    --brick-dark: #B85F68;
+    --shadow-purple: #905080;
+    --outline-teal: #245E67;
+    --panel-cream: #FFF8E7;
+    --accent-yellow: #F5D66B;
   }
 
   body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
+    background-color: var(--bg-sky);
+    color: #245E67;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
@@ -28,50 +33,84 @@
   }
 }
 
-/* Custom Utilities */
-.glass-panel {
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+/* Custom Platformer Utilities */
+.glass-panel, .platformer-panel {
+  background-color: #FFF8E7;
+  border: 3.5px solid #245E67;
+  box-shadow: 5px 5px 0px #905080;
+  border-radius: 1.25rem;
 }
 
-.glass-card {
-  background: linear-gradient(135deg, rgba(17, 24, 39, 0.95) 0%, rgba(11, 15, 25, 0.85) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5);
+.glass-card, .platformer-card {
+  background-color: #FFF8E7;
+  border: 3.5px solid #245E67;
+  box-shadow: 4px 4px 0px #905080;
+  border-radius: 1.25rem;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.glow-emerald {
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+.platformer-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 8px 0px #905080;
 }
 
-.glow-cyan {
-  box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);
+.platformer-btn {
+  background-color: #F5D66B;
+  color: #245E67;
+  border: 3px solid #245E67;
+  box-shadow: 4px 4px 0px #905080;
+  border-radius: 0.85rem;
+  font-weight: 900;
+  transition: all 0.15s ease-in-out;
 }
 
-.glow-indigo {
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+.platformer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 0px #905080;
+  background-color: #FBE585;
 }
 
-.text-glow-emerald {
-  text-shadow: 0 0 14px rgba(16, 185, 129, 0.7);
+.platformer-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0px 0px 0px #905080;
 }
 
-.text-glow-cyan {
-  text-shadow: 0 0 14px rgba(6, 182, 212, 0.7);
+.text-outline-teal {
+  -webkit-text-stroke: 1.5px #245E67;
+  paint-order: stroke fill;
 }
 
-.text-glow-purple {
-  text-shadow: 0 0 14px rgba(139, 92, 246, 0.7);
+.text-shadow-purple {
+  text-shadow: 3px 3px 0px #905080;
 }
 
-/* Retro Grid Background Animation */
-.arcade-grid-bg {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(6, 182, 212, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(6, 182, 212, 0.06) 1px, transparent 1px);
+.text-shadow-teal {
+  text-shadow: 3px 3px 0px #245E67;
+}
+
+/* Platformer Grass Trim Edge */
+.grass-top-border {
+  border-top: 6px solid #72C96B;
+  box-shadow: inset 0 4px 0 #B6E06F;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #4CA8E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #72C96B;
+  border-radius: 6px;
+  border: 2.5px solid #245E67;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B6E06F;
 }
 
 /* Prevent canvas and game areas from triggering mobile browser gestures */
@@ -84,33 +123,6 @@
 
 canvas {
   touch-action: none;
-}
-
-/* Mobile-friendly tap target sizes */
-@media (max-width: 640px) {
-  .glass-panel {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-  }
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #030712;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #111827;
-  border-radius: 4px;
-  border: 1px solid rgba(6, 182, 212, 0.3);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #06B6D4;
 }
 
 /* Safe-area insets for phones with notches */

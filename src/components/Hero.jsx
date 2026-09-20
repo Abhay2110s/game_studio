@@ -2,32 +2,73 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Gamepad2, ArrowRight } from 'lucide-react';
+import heroBg from '../assets/hero-bg.jpg';
 
 const CARDS_DATA = [
   {
-    letter: 'P',
-    gradient: 'from-emerald-400 via-teal-300 to-cyan-500',
-    glowColor: 'group-hover:shadow-emerald-500/40 group-hover:border-emerald-400/60',
-    accent: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-  },
-  {
-    letter: 'L',
-    gradient: 'from-cyan-400 via-sky-300 to-indigo-500',
-    glowColor: 'group-hover:shadow-cyan-500/40 group-hover:border-cyan-400/60',
-    accent: 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/30'
+    letter: 'G',
+    bgColor: 'bg-[#FFF8E7]',
+    letterColor: 'text-[#4098D8]',
+    grassTop: 'bg-[#70D0F0]',
+    badgeBg: 'bg-[#70D0F0]',
+    badgeText: 'text-[#245E67]',
   },
   {
     letter: 'A',
-    gradient: 'from-indigo-400 via-purple-300 to-fuchsia-500',
-    glowColor: 'group-hover:shadow-indigo-500/40 group-hover:border-indigo-400/60',
-    accent: 'bg-indigo-500/20 text-indigo-400 border border-indigo-500/30'
+    bgColor: 'bg-[#FFF8E7]',
+    letterColor: 'text-[#4D9D67]',
+    grassTop: 'bg-[#72C96B]',
+    badgeBg: 'bg-[#72C96B]',
+    badgeText: 'text-[#245E67]',
   },
   {
-    letter: 'Y',
-    gradient: 'from-rose-400 via-pink-300 to-amber-400',
-    glowColor: 'group-hover:shadow-rose-500/40 group-hover:border-rose-400/60',
-    accent: 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
-  }
+    letter: 'M',
+    bgColor: 'bg-[#FFF8E7]',
+    letterColor: 'text-[#E48170]',
+    grassTop: 'bg-[#F09A79]',
+    badgeBg: 'bg-[#E48170]',
+    badgeText: 'text-[#FFF8E7]',
+  },
+  {
+    letter: 'E',
+    bgColor: 'bg-[#FFF8E7]',
+    letterColor: 'text-[#905080]',
+    grassTop: 'bg-[#B85F68]',
+    badgeBg: 'bg-[#F5D66B]',
+    badgeText: 'text-[#245E67]',
+  },
+  {
+    letter: 'O',
+    bgColor: 'bg-[#FFF8E7]',
+    letterColor: 'text-[#E48170]',
+    grassTop: 'bg-[#F09A79]',
+    badgeBg: 'bg-[#F5D66B]',
+    badgeText: 'text-[#245E67]',
+  },
+  {
+    letter: 'V',
+    bgColor: 'bg-[#FFF8E7]',
+    letterColor: 'text-[#4098D8]',
+    grassTop: 'bg-[#70D0F0]',
+    badgeBg: 'bg-[#70D0F0]',
+    badgeText: 'text-[#245E67]',
+  },
+  {
+    letter: 'E',
+    bgColor: 'bg-[#FFF8E7]',
+    letterColor: 'text-[#4D9D67]',
+    grassTop: 'bg-[#72C96B]',
+    badgeBg: 'bg-[#72C96B]',
+    badgeText: 'text-[#245E67]',
+  },
+  {
+    letter: 'R',
+    bgColor: 'bg-[#FFF8E7]',
+    letterColor: 'text-[#905080]',
+    grassTop: 'bg-[#B85F68]',
+    badgeBg: 'bg-[#E48170]',
+    badgeText: 'text-[#FFF8E7]',
+  },
 ];
 
 export const Hero = () => {
@@ -38,40 +79,71 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-[65vh] sm:min-h-[75vh] flex flex-col items-center justify-center pt-8 pb-12 px-3 sm:px-6 lg:px-8 overflow-hidden select-none">
+    <section className="relative min-h-[70vh] sm:min-h-[80vh] flex flex-col items-center justify-center pt-8 pb-16 px-3 sm:px-6 lg:px-8 overflow-hidden select-none bg-[#4CA8E8]">
       
-      {/* Rich Vibrant Background Ambient Glow Orbs */}
+      {/* 2D Platformer Sky Scene Background */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-cyan-500/15 rounded-full blur-[150px]" />
-        <div className="absolute top-1/2 left-1/4 w-[350px] h-[350px] bg-emerald-500/12 rounded-full blur-[130px]" />
-        <div className="absolute bottom-10 right-1/4 w-[400px] h-[350px] bg-indigo-600/15 rounded-full blur-[140px]" />
+        {/* Sky Background Art - Clean un-tinted reference image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-100"
+          style={{ backgroundImage: `url(${heroBg})` }}
+        />
+
+        {/* Soft Decorative Floating Clouds */}
+        <motion.div 
+          animate={{ x: [0, 40, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-12 left-[10%] w-36 h-12 bg-[#F4F3E6] rounded-full shadow-[inset_0_-4px_0_#D7EEF0] border-2 border-[#245E67]/20 opacity-90 hidden sm:block"
+        />
+        <motion.div 
+          animate={{ x: [0, -30, 0] }}
+          transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute top-24 right-[12%] w-44 h-14 bg-[#F4F3E6] rounded-full shadow-[inset_0_-5px_0_#D7EEF0] border-2 border-[#245E67]/20 opacity-90 hidden sm:block"
+        />
       </div>
 
-      {/* 4 CARDS IN ONE HORIZONTAL ROW (P - L - A - Y) */}
-      <div className="w-full max-w-4xl mx-auto z-10">
-        <div className="grid grid-cols-4 gap-2.5 sm:gap-4 md:gap-6 justify-center items-center w-full">
+      {/* Hero Welcome Badge */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.4 }}
+        className="z-10 mb-6 sm:mb-8"
+      >
+        <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-sm font-black bg-[#FFF8E7] text-[#245E67] border-[3px] border-[#245E67] shadow-[3px_3px_0px_#905080]">
+          <Gamepad2 className="w-4 h-4 text-[#E48170]" />
+          WELCOME TO GAMEVERSE ARCADE
+        </span>
+      </motion.div>
+
+      {/* 8 CARDS IN HORIZONTAL ROW (G A M E   O V E R) */}
+      <div className="w-full max-w-6xl mx-auto z-10">
+        <div className="grid grid-cols-4 sm:grid-cols-8 gap-1.5 sm:gap-3 md:gap-4 justify-center items-center w-full">
           {CARDS_DATA.map((card, idx) => (
             <motion.div
-              key={card.letter}
+              key={`${card.letter}-${idx}`}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              whileHover={{ y: -8, scale: 1.05 }}
-              className={`group aspect-[3/4] w-full rounded-2xl sm:rounded-3xl bg-gradient-to-b from-slate-900/95 via-[#0B0F19]/95 to-slate-900/95 border border-white/10 ${card.glowColor} shadow-2xl hover:shadow-cyan-900/30 transition-all duration-300 flex flex-col items-center justify-center relative overflow-hidden backdrop-blur-xl cursor-pointer`}
+              transition={{ duration: 0.4, delay: idx * 0.04 }}
+              whileHover={{ y: -6, scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className={`group aspect-[3/4] w-full rounded-xl sm:rounded-2xl md:rounded-3xl ${card.bgColor} border-[2.5px] sm:border-[3.5px] border-[#245E67] shadow-[3px_3px_0px_#905080] sm:shadow-[5px_5px_0px_#905080] hover:shadow-[6px_8px_0px_#905080] transition-all duration-200 flex flex-col items-center justify-center relative overflow-hidden cursor-pointer`}
               onClick={handlePlayNow}
             >
-              {/* Top Accent Icon */}
-              <div className={`absolute top-2 right-2 sm:top-3.5 sm:right-3.5 w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl ${card.accent} flex items-center justify-center opacity-85 group-hover:opacity-100 transition-opacity shadow-sm`}>
-                <Gamepad2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+              {/* Platformer Grass Top Edge Trim */}
+              <div className={`absolute top-0 inset-x-0 h-2 sm:h-3 ${card.grassTop} border-b-2 border-[#245E67]`} />
+
+              {/* Top Accent Icon Badge */}
+              <div className={`absolute top-2 right-1.5 sm:top-3 sm:right-2 w-4 h-4 sm:w-6 sm:h-6 rounded-md ${card.badgeBg} ${card.badgeText} border sm:border-2 border-[#245E67] hidden sm:flex items-center justify-center shadow-xs`}>
+                <Gamepad2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" />
               </div>
 
-              {/* Main Card Letter */}
-              <span className={`text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black bg-clip-text text-transparent bg-gradient-to-tr ${card.gradient} drop-shadow-[0_10px_20px_rgba(0,0,0,0.7)] group-hover:scale-105 transition-transform duration-300`}>
+              {/* Main Card Letter Tile */}
+              <span className={`text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black ${card.letterColor} text-shadow-teal drop-shadow-md transition-transform duration-200 group-hover:scale-105`}>
                 {card.letter}
               </span>
 
-              {/* Subtle Bottom Glow Line */}
-              <div className="absolute bottom-0 inset-x-4 h-1 rounded-t-full bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              {/* Bottom Terrain Soil Block */}
+              <div className="absolute bottom-0 inset-x-0 h-1.5 sm:h-2 bg-[#E48170] border-t-2 border-[#245E67]" />
             </motion.div>
           ))}
         </div>
@@ -81,19 +153,17 @@ export const Hero = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
+        transition={{ duration: 0.4, delay: 0.35 }}
         className="mt-8 sm:mt-12 z-10"
       >
-        <motion.button
+        <button
           onClick={handlePlayNow}
-          whileHover={{ scale: 1.05, y: -2 }}
-          whileTap={{ scale: 0.96 }}
-          className="px-8 sm:px-12 py-3.5 sm:py-4.5 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-black text-lg sm:text-2xl tracking-wide flex items-center gap-3 shadow-2xl shadow-emerald-500/30 hover:shadow-cyan-400/50 border border-emerald-300/40 transition-all duration-300 cursor-pointer group"
+          className="px-8 sm:px-12 py-3.5 sm:py-4.5 rounded-2xl bg-[#F5D66B] hover:bg-[#FBE585] text-[#245E67] font-black text-lg sm:text-2xl tracking-wide flex items-center gap-3 border-[3.5px] border-[#245E67] shadow-[5px_5px_0px_#905080] hover:shadow-[3px_3px_0px_#905080] hover:-translate-y-0.5 active:translate-y-1 active:shadow-none transition-all duration-150 cursor-pointer group"
         >
-          <Gamepad2 className="w-6 h-6 sm:w-7 sm:h-7 text-slate-950 group-hover:rotate-12 transition-transform" />
+          <Gamepad2 className="w-6 h-6 sm:w-7 sm:h-7 text-[#245E67] group-hover:rotate-12 transition-transform" />
           <span>PLAY NOW</span>
-          <ArrowRight className="w-6 h-6 sm:w-7 sm:h-7 text-slate-950 group-hover:translate-x-2 transition-transform" />
-        </motion.button>
+          <ArrowRight className="w-6 h-6 sm:w-7 sm:h-7 text-[#245E67] group-hover:translate-x-2 transition-transform" />
+        </button>
       </motion.div>
 
     </section>

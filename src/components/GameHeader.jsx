@@ -19,7 +19,7 @@ export const GameHeader = ({
   };
 
   return (
-    <div className="w-full glass-panel rounded-2xl p-3 sm:p-4 md:p-5 mb-4 sm:mb-6 flex flex-col gap-3 sm:gap-4 border border-white/10 shadow-xl">
+    <div className="w-full bg-[#FFF8E7] rounded-2xl p-3 sm:p-4 md:p-5 mb-4 sm:mb-6 flex flex-col gap-3 sm:gap-4 border-[3.5px] border-[#245E67] shadow-[4px_4px_0px_#905080]">
       
       {/* Top row: Back & Title */}
       <div className="flex items-center gap-2 sm:gap-4 justify-between">
@@ -33,7 +33,7 @@ export const GameHeader = ({
           <span className="hidden sm:inline">Back</span>
         </Button>
 
-        <h1 className="text-base sm:text-xl md:text-2xl font-black tracking-tight text-white truncate flex-1 text-center">
+        <h1 className="text-base sm:text-xl md:text-2xl font-black tracking-tight text-[#245E67] truncate flex-1 text-center">
           {title}
         </h1>
       </div>
@@ -42,32 +42,32 @@ export const GameHeader = ({
       <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
         
         {/* Score & Stats Display */}
-        <div className="flex items-center gap-3 sm:gap-5 bg-slate-900/90 px-3 sm:px-5 py-1.5 sm:py-2 rounded-xl border border-white/10 shadow-inner">
+        <div className="flex items-center gap-3 sm:gap-5 bg-[#E2F1F8] px-3 sm:px-5 py-1.5 sm:py-2 rounded-xl border-2 border-[#245E67] shadow-inner">
           {score !== undefined && (
             <div className="flex flex-col items-center">
-              <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400 font-bold">Score</span>
-              <span className="text-base sm:text-xl font-extrabold text-cyan-400 text-glow-cyan">{score}</span>
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#245E67] font-extrabold">Score</span>
+              <span className="text-base sm:text-xl font-black text-[#245E67]">{score}</span>
             </div>
           )}
 
           {highScore !== undefined && (
             <>
-              <div className="w-px h-6 sm:h-8 bg-slate-800" />
+              <div className="w-0.5 h-6 sm:h-8 bg-[#245E67]/30" />
               <div className="flex flex-col items-center">
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400 font-bold flex items-center gap-1">
-                  <Trophy className="w-3 h-3 text-amber-400" /> Best
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#245E67] font-extrabold flex items-center gap-1">
+                  <Trophy className="w-3 h-3 text-[#E48170]" /> Best
                 </span>
-                <span className="text-base sm:text-xl font-extrabold text-amber-400">{highScore}</span>
+                <span className="text-base sm:text-xl font-black text-[#E48170]">{highScore}</span>
               </div>
             </>
           )}
 
           {extraStat && (
             <>
-              <div className="w-px h-6 sm:h-8 bg-slate-800" />
+              <div className="w-0.5 h-6 sm:h-8 bg-[#245E67]/30" />
               <div className="flex flex-col items-center">
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-slate-400 font-bold">{extraStat.label}</span>
-                <span className="text-base sm:text-xl font-extrabold text-cyan-400">{extraStat.value}</span>
+                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#245E67] font-extrabold">{extraStat.label}</span>
+                <span className="text-base sm:text-xl font-black text-[#4D9D67]">{extraStat.value}</span>
               </div>
             </>
           )}
@@ -93,7 +93,7 @@ export const GameHeader = ({
               variant="ghost"
               size="sm"
               icon={RotateCcw}
-              className="border border-cyan-500/30 hover:bg-cyan-500/20 text-cyan-300 text-xs sm:text-sm"
+              className="border-2 border-[#245E67] bg-[#FFF8E7] hover:bg-white text-[#245E67] text-xs sm:text-sm shadow-xs"
             >
               <span className="hidden sm:inline">Restart</span>
             </Button>

@@ -39,22 +39,24 @@ export const GamePage = () => {
       </div>
 
       {/* Below Game Area: Instructions & Controls Info */}
-      <div className="max-w-4xl mx-auto mt-6 sm:mt-8 glass-panel rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border border-white/10 flex flex-col md:flex-row justify-between gap-4 sm:gap-6">
+      <div className="max-w-4xl mx-auto mt-6 sm:mt-8 bg-[#FFF8E7] rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 border-[3.5px] border-[#245E67] shadow-[5px_5px_0px_#905080] flex flex-col md:flex-row justify-between gap-4 sm:gap-6 relative overflow-hidden">
+        {/* Top grass edge decoration */}
+        <div className="absolute top-0 left-0 right-0 h-2 bg-[#72C96B]" />
         
         {/* Left: Description & Rules */}
-        <div className="flex-1 flex flex-col gap-2">
-          <div className="flex items-center gap-2 text-purple-400 font-bold text-sm uppercase tracking-wider">
-            <Info className="w-4 h-4" /> About {game.title}
+        <div className="flex-1 flex flex-col gap-2 mt-1">
+          <div className="flex items-center gap-2 text-[#E48170] font-black text-sm uppercase tracking-wider">
+            <Info className="w-4 h-4 text-[#245E67]" /> About {game.title}
           </div>
-          <p className="text-slate-300 text-sm leading-relaxed font-medium">
+          <p className="text-[#245E67] text-sm leading-relaxed font-semibold">
             {game.description}
           </p>
         </div>
 
         {/* Right: Controls Quick Reference */}
-        <div className="md:w-80 bg-slate-900/90 p-4 rounded-2xl border border-white/10 flex flex-col gap-2">
-          <span className="text-xs font-bold text-cyan-400 uppercase tracking-wider">Controls & Keybinds</span>
-          <ul className="text-xs text-slate-400 flex flex-col gap-1.5 list-disc list-inside">
+        <div className="md:w-80 bg-[#E2F1F8] p-4 rounded-2xl border-2 border-[#245E67] flex flex-col gap-2">
+          <span className="text-xs font-black text-[#245E67] uppercase tracking-wider">Controls & Keybinds</span>
+          <ul className="text-xs text-[#245E67]/90 font-medium flex flex-col gap-1.5 list-disc list-inside">
             {game.controls.map((ctrl, i) => (
               <li key={i} className="leading-normal">{ctrl}</li>
             ))}

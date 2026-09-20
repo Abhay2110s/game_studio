@@ -4,32 +4,33 @@ import { Gamepad2 } from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer className="w-full border-t border-white/10 bg-[#030712] py-8 sm:py-12 px-4 sm:px-6 lg:px-8 mt-12 sm:mt-20">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+    <footer className="w-full border-t-[4px] border-[#245E67] bg-[#E48170] relative mt-12 sm:mt-20">
+      {/* Top Layered Grass Border */}
+      <div className="w-full h-3 bg-[#72C96B] border-b-2 border-[#245E67]" />
+      
+      <div className="max-w-7xl mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8">
 
         {/* Brand Info */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left gap-2">
           <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-cyan-400 p-0.5 shadow-md shadow-cyan-500/20">
-              <div className="w-full h-full bg-[#030712] rounded-[6px] flex items-center justify-center">
-                <Gamepad2 className="w-4 h-4 text-cyan-400 group-hover:text-emerald-300 transition-colors" />
-              </div>
+            <div className="w-9 h-9 rounded-xl bg-[#F5D66B] border-[2.5px] border-[#245E67] shadow-[2px_2px_0px_#905080] flex items-center justify-center">
+              <Gamepad2 className="w-5 h-5 text-[#245E67]" />
             </div>
-            <span className="font-extrabold text-lg tracking-wider text-white">
-              GAME<span className="text-cyan-400 group-hover:text-emerald-400 transition-colors">VERSE</span>
+            <span className="font-black text-xl tracking-wider text-[#FFF8E7] text-shadow-teal">
+              GAME<span className="text-[#F5D66B]">VERSE</span>
             </span>
           </Link>
         </div>
 
         {/* Links */}
-        <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-400 font-medium">
-          <Link to="/" className="hover:text-cyan-400 transition-colors">
+        <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-black text-[#FFF8E7]">
+          <Link to="/" className="hover:text-[#F5D66B] transition-colors">
             Home
           </Link>
-          <Link to="/games" className="hover:text-cyan-400 transition-colors">
+          <Link to="/games" className="hover:text-[#F5D66B] transition-colors">
             Games
           </Link>
-          <Link to="/about" className="hover:text-cyan-400 transition-colors">
+          <Link to="/about" className="hover:text-[#F5D66B] transition-colors">
             About
           </Link>
         </div>

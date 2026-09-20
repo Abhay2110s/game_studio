@@ -140,44 +140,44 @@ export const GameCard = ({ game }) => {
     <motion.div
       whileHover={{ y: -6, scale: 1.02 }}
       transition={{ duration: 0.25 }}
-      className="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group border border-slate-800 hover:border-cyan-500/50 hover:shadow-2xl hover:shadow-cyan-500/15 transition-all duration-300"
+      className="bg-[#FFF8E7] rounded-2xl overflow-hidden flex flex-col justify-between group border-[3.5px] border-[#245E67] shadow-[4px_4px_0px_#905080] hover:shadow-[7px_9px_0px_#905080] transition-all duration-200"
     >
       <div>
         {/* Card Header Illustration */}
-        <div className="relative h-44 w-full overflow-hidden bg-slate-950 flex items-center justify-center border-b border-white/5">
+        <div className="relative h-44 w-full overflow-hidden bg-[#1E3B5C] flex items-center justify-center border-b-[3px] border-[#245E67]">
           <GamePreviewGraphic slug={slug} />
           
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent" />
+          {/* Top Grass Trim */}
+          <div className="absolute top-0 inset-x-0 h-2 bg-[#72C96B] border-b border-[#245E67]" />
 
           {/* Category Badge */}
-          <div className="absolute top-3 left-3">
-            <span className={`px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r ${badgeColor} shadow-md`}>
+          <div className="absolute top-3.5 left-3">
+            <span className="px-3 py-1 rounded-lg text-xs font-black text-[#245E67] bg-[#F5D66B] border-2 border-[#245E67] shadow-xs">
               {category}
             </span>
           </div>
 
           {/* Difficulty Tag */}
-          <div className="absolute top-3 right-3">
-            <span className="px-2.5 py-1 rounded-full text-xs font-medium text-slate-300 bg-slate-900/80 backdrop-blur-md border border-slate-700/60">
+          <div className="absolute top-3.5 right-3">
+            <span className="px-2.5 py-1 rounded-lg text-xs font-extrabold text-[#245E67] bg-[#FFF8E7] border-2 border-[#245E67]">
               {difficulty}
             </span>
           </div>
         </div>
 
         {/* Content Body */}
-        <div className="p-5 flex flex-col gap-2.5">
-          <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+        <div className="p-5 flex flex-col gap-2">
+          <h3 className="text-xl font-black text-[#245E67] group-hover:text-[#4098D8] transition-colors">
             {title}
           </h3>
-          <p className="text-sm text-slate-400 line-clamp-2 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#4A5568] line-clamp-2 leading-relaxed font-medium">
             {description}
           </p>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-1.5 mt-2">
             {tags.map((tag) => (
-              <span key={tag} className="text-[11px] font-medium text-cyan-400/80 bg-cyan-950/30 px-2 py-0.5 rounded-md border border-cyan-500/20">
+              <span key={tag} className="text-[11px] font-bold text-[#245E67] bg-[#E2F1F8] px-2 py-0.5 rounded-md border border-[#245E67]/40">
                 #{tag}
               </span>
             ))}

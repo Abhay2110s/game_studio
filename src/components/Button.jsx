@@ -17,16 +17,17 @@ export const Button = ({
     }
   };
 
-  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none';
+  const baseStyles = 'inline-flex items-center justify-center font-black rounded-xl transition-all duration-150 focus:outline-none cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed select-none active:translate-y-0.5 active:shadow-none';
 
   const variants = {
-    primary: 'bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400/30',
-    secondary: 'bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-800 hover:border-cyan-500/50 shadow-md',
-    cyan: 'bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/20 border border-cyan-400/30',
-    danger: 'bg-gradient-to-r from-rose-600 to-pink-600 hover:from-rose-500 hover:to-pink-500 text-white shadow-lg shadow-rose-900/30 border border-rose-500/30',
-    outline: 'bg-slate-900/50 border border-cyan-500/40 hover:bg-cyan-500/10 hover:border-cyan-400 text-cyan-300 hover:text-white',
-    emerald: 'bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold shadow-lg shadow-emerald-500/20 border border-emerald-400/30',
-    ghost: 'bg-transparent hover:bg-slate-800/80 text-slate-300 hover:text-cyan-400',
+    primary: 'bg-[#F5D66B] hover:bg-[#FBE585] text-[#245E67] border-[3px] border-[#245E67] shadow-[4px_4px_0px_#905080] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#905080]',
+    secondary: 'bg-[#FFF8E7] hover:bg-white text-[#245E67] border-[3px] border-[#245E67] shadow-[4px_4px_0px_#905080] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#905080]',
+    cyan: 'bg-[#70D0F0] hover:bg-[#8CE0FC] text-[#245E67] border-[3px] border-[#245E67] shadow-[4px_4px_0px_#905080] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#905080]',
+    emerald: 'bg-[#72C96B] hover:bg-[#8BD885] text-[#245E67] border-[3px] border-[#245E67] shadow-[4px_4px_0px_#905080] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#905080]',
+    brick: 'bg-[#E48170] hover:bg-[#F09A79] text-[#FFF8E7] border-[3px] border-[#245E67] shadow-[4px_4px_0px_#905080] hover:-translate-y-0.5 hover:shadow-[3px_3px_0px_#905080]',
+    danger: 'bg-[#B85F68] hover:bg-[#E48170] text-[#FFF8E7] border-[3px] border-[#245E67] shadow-[4px_4px_0px_#245E67] hover:-translate-y-0.5',
+    outline: 'bg-[#FFF8E7] hover:bg-white text-[#245E67] border-[3px] border-[#245E67] shadow-[3px_3px_0px_#905080] hover:-translate-y-0.5',
+    ghost: 'bg-transparent hover:bg-[#FFF8E7]/50 text-[#245E67] hover:text-[#245E67]',
   };
 
   const sizes = {

@@ -8,19 +8,22 @@ export const PauseModal = ({ isOpen, onResume, onRestart, onBack }) => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-md safe-bottom">
+      <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-3 sm:p-4 bg-[#245E67]/60 backdrop-blur-md safe-bottom">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
-          className="w-full max-w-sm glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 text-center border border-white/15 shadow-2xl"
+          className="w-full max-w-sm bg-[#FFF8E7] rounded-2xl sm:rounded-3xl p-5 sm:p-6 text-center border-[3.5px] border-[#245E67] shadow-[6px_6px_0px_#905080] relative overflow-hidden"
         >
-          <div className="mx-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center mb-3 sm:mb-4">
-            <PauseCircle className="w-7 h-7 sm:w-8 sm:h-8 text-cyan-400" />
+          {/* Top grass trim */}
+          <div className="absolute top-0 left-0 right-0 h-2 bg-[#72C96B]" />
+
+          <div className="mx-auto w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#F5D66B] border-2 border-[#245E67] flex items-center justify-center mb-3 sm:mb-4 mt-1 shadow-[3px_3px_0px_#905080]">
+            <PauseCircle className="w-7 h-7 sm:w-8 sm:h-8 text-[#245E67]" />
           </div>
 
-          <h2 className="text-xl sm:text-2xl font-black text-white mb-1 sm:mb-2">GAME PAUSED</h2>
-          <p className="text-xs sm:text-sm text-slate-400 mb-4 sm:mb-6">Take a breather or restart when ready!</p>
+          <h2 className="text-xl sm:text-2xl font-black text-[#245E67] mb-1 sm:mb-2">GAME PAUSED</h2>
+          <p className="text-xs sm:text-sm text-[#245E67]/80 font-medium mb-4 sm:mb-6">Take a breather or restart when ready!</p>
 
           <div className="flex flex-col gap-2 sm:gap-3">
             <Button
@@ -43,9 +46,9 @@ export const PauseModal = ({ isOpen, onResume, onRestart, onBack }) => {
 
             <Button
               onClick={onBack}
-              variant="ghost"
+              variant="outline"
               icon={Grid}
-              className="w-full py-2.5 sm:py-3 text-slate-400 hover:text-white"
+              className="w-full py-2.5 sm:py-3"
             >
               Exit to Arcade
             </Button>
