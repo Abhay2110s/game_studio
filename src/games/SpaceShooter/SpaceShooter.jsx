@@ -40,7 +40,7 @@ export const SpaceShooter = () => {
     boss: null,
     particles: [],
     powerups: [],
-    keys: { left: false, right: false, shoot: false },
+    keys: { left: false, right: false, space: false },
   });
 
   // Spawn Enemy Wave
@@ -147,7 +147,7 @@ export const SpaceShooter = () => {
       const keys = engineRef.current.keys;
       if (['ArrowLeft', 'KeyA'].includes(e.code)) keys.left = true;
       if (['ArrowRight', 'KeyD'].includes(e.code)) keys.right = true;
-      if (['KeyQ'].includes(e.code) || e.key === 'q' || e.key === 'Q') keys.shoot = true;
+      if (['KeyQ'].includes(e.code)) keys.Q = true;
       if (['KeyP'].includes(e.code)) {
         if (gameState === 'RUNNING' || gameState === 'PAUSED') {
           setGameState((s) => (s === 'RUNNING' ? 'PAUSED' : 'RUNNING'));
@@ -159,7 +159,7 @@ export const SpaceShooter = () => {
       const keys = engineRef.current.keys;
       if (['ArrowLeft', 'KeyA'].includes(e.code)) keys.left = false;
       if (['ArrowRight', 'KeyD'].includes(e.code)) keys.right = false;
-      if (['KeyQ'].includes(e.code) || e.key === 'q' || e.key === 'Q') keys.shoot = false;
+      if (['Space'].includes(e.code)) keys.space = false;
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -206,7 +206,7 @@ export const SpaceShooter = () => {
       // Update Player Position
       if (keys.left) player.x = Math.max(10, player.x - player.speed);
       if (keys.right) player.x = Math.min(CANVAS_WIDTH - player.width - 10, player.x + player.speed);
-      if (keys.shoot) firePlayerLaser();
+      if (keys.space) firePlayerLaser();
 
       // Powerup Timers Countdown
       if (player.multiShotTimer > 0) player.multiShotTimer--;
@@ -502,7 +502,7 @@ export const SpaceShooter = () => {
           {/* Lives Indicator Bar overlay */}
           <div className="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-1">
             <span className="text-xs font-bold text-slate-300">Lives:</span>
-            <span className="text-xs">{ '❤️ '.repeat(lives) }</span>
+            <span className="text-xs">{'❤️ '.repeat(lives)}</span>
           </div>
 
           {/* Start Screen Overlay */}
