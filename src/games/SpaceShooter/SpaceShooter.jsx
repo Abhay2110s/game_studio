@@ -40,7 +40,7 @@ export const SpaceShooter = () => {
     boss: null,
     particles: [],
     powerups: [],
-    keys: { left: false, right: false, space: false },
+    keys: { left: false, right: false, shoot: false },
   });
 
   // Spawn Enemy Wave
@@ -147,7 +147,7 @@ export const SpaceShooter = () => {
       const keys = engineRef.current.keys;
       if (['ArrowLeft', 'KeyA'].includes(e.code)) keys.left = true;
       if (['ArrowRight', 'KeyD'].includes(e.code)) keys.right = true;
-      if (['Space'].includes(e.code)) keys.space = true;
+      if (['KeyQ'].includes(e.code) || e.key === 'q' || e.key === 'Q') keys.shoot = true;
       if (['KeyP'].includes(e.code)) {
         if (gameState === 'RUNNING' || gameState === 'PAUSED') {
           setGameState((s) => (s === 'RUNNING' ? 'PAUSED' : 'RUNNING'));
@@ -159,7 +159,7 @@ export const SpaceShooter = () => {
       const keys = engineRef.current.keys;
       if (['ArrowLeft', 'KeyA'].includes(e.code)) keys.left = false;
       if (['ArrowRight', 'KeyD'].includes(e.code)) keys.right = false;
-      if (['Space'].includes(e.code)) keys.space = false;
+      if (['KeyQ'].includes(e.code) || e.key === 'q' || e.key === 'Q') keys.shoot = false;
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -206,7 +206,7 @@ export const SpaceShooter = () => {
       // Update Player Position
       if (keys.left) player.x = Math.max(10, player.x - player.speed);
       if (keys.right) player.x = Math.min(CANVAS_WIDTH - player.width - 10, player.x + player.speed);
-      if (keys.space) firePlayerLaser();
+      if (keys.shoot) firePlayerLaser();
 
       // Powerup Timers Countdown
       if (player.multiShotTimer > 0) player.multiShotTimer--;

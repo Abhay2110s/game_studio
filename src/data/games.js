@@ -68,7 +68,7 @@ export const GAMES_DATA = [
     difficulty: 'Hard',
     badgeColor: 'from-violet-500 to-purple-700',
     accentColor: '#8B5CF6',
-    controls: ['A / D or Left / Right Arrows to move', 'Space to blast lasers', 'Destroy enemies & boss waves'],
+    controls: ['A / D or Left / Right Arrows to move', 'Q to blast lasers', 'Destroy enemies & boss waves'],
     tags: ['Action', 'Canvas', 'Boss Battles']
   }
 ];
